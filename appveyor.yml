@@ -1,0 +1,15 @@
+version: 1.0.{build}
+image:
+- Visual Studio 2015
+configuration:
+- Debug
+clone_depth: 1
+cache:
+- packages -> **\packages.config
+- '%LocalAppData%\NuGet\Cache'
+before_build:
+- cmd: nuget restore
+build:
+  project: SkeletonCQRS.sln
+  parallel: true
+  verbosity: minimal
