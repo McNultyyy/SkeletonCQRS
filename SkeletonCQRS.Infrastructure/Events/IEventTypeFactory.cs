@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
-using SkeletonCQRS.Infrastructure.Events;
 
-namespace SkeletonCQRS.Domain.Helpers
+namespace SkeletonCQRS.Infrastructure.Events
 {
     public interface IEventTypeFactory
     {

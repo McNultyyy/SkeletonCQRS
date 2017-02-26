@@ -1,4 +1,4 @@
-﻿using SkeletonCQRS.Infrastructure.Queries.Handlers;
+﻿using SkeletonCQRS.Infrastructure.Queries;
 
 namespace SkeletonCQRS.Domain.Queries.Handlers
 {

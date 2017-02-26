@@ -8,11 +8,9 @@ using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using SkeletonCQRS.Data.Repositories;
 using SkeletonCQRS.Domain.Commands;
-using SkeletonCQRS.Domain.Helpers;
 using SkeletonCQRS.Domain.Queries;
 using SkeletonCQRS.Infrastructure.Aggregates;
 using SkeletonCQRS.Infrastructure.Commands;
-using SkeletonCQRS.Infrastructure.Commands.Handlers;
 using SkeletonCQRS.Infrastructure.Events;
 using SkeletonCQRS.Infrastructure.Queries;
 using SkeletonCQRS.Web.Extensions;
@@ -66,8 +64,21 @@ namespace SkeletonCQRS.Web
             container.RegisterType<IEventSerializer, EventXmlSerializer>();
             container.RegisterType<IEventTypeFactory, EventTypeFactory>();
 
+            container.RegisterType<IEventHandlerFactory, EventHandlerFactory>();
+            container.RegisterType<IEventPublisher, EventPublisher>();
+
             container.RegisterAllTypesForOpenGeneric(
                 typeof(ICommandHandler<>),
+                AppDomain.CurrentDomain.GetAssemblies()
+            );
+
+            container.RegisterAllTypesForOpenGeneric(
+                typeof(IQueryHandler<,>),
+                AppDomain.CurrentDomain.GetAssemblies()
+            );
+
+            container.RegisterAllTypesForOpenGeneric(
+                typeof(IEventHandler<>),
                 AppDomain.CurrentDomain.GetAssemblies()
             );
         }

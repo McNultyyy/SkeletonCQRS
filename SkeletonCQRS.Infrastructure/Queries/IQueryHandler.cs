@@ -1,4 +1,4 @@
-﻿namespace SkeletonCQRS.Infrastructure.Queries.Handlers
+﻿namespace SkeletonCQRS.Infrastructure.Queries
 {
     public interface IQueryHandler<in TQuery, out TResult> where TQuery : IQuery<TResult>
     {

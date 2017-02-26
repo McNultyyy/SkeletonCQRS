@@ -60,22 +60,24 @@
   <ItemGroup>
     <Compile Include="Aggregates\AggregateRoot.cs" />
     <Compile Include="Aggregates\IAggregateRepository.cs" />
-    <Compile Include="Commands\CommandProcessor.cs" />
-    <Compile Include="Commands\Handlers\ICommandHandler.cs" />
+    <Compile Include="Commands\ICommandHandler.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ICommandProcessor.cs" />
     <Compile Include="Commands\ICommandHandlerFactory.cs" />
+    <Compile Include="Events\IEventHandler.cs" />
     <Compile Include="Events\DomainEvent.cs" />
     <Compile Include="Events\EventStore.cs" />
+    <Compile Include="Events\IEventHandlerFactory.cs" />
+    <Compile Include="Events\IEventPublisher.cs" />
     <Compile Include="Events\IEventSerializer.cs" />
     <Compile Include="Events\IEventTypeFactory.cs" />
     <Compile Include="Extensions\DynamicObjectExtension.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\Handlers\IQueryHandler.cs" />
+    <Compile Include="Queries\IQueryHandler.cs" />
     <Compile Include="Queries\IQueryHandlerFactory.cs" />
     <Compile Include="Queries\IQueryProcessor.cs" />
-    <Compile Include="Queries\Query.cs" />
+    <Compile Include="Queries\IQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

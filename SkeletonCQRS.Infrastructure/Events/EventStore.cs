@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SkeletonCQRS.Data.Entities;
-using SkeletonCQRS.Domain.Helpers;
 
 namespace SkeletonCQRS.Infrastructure.Events
 {
@@ -17,12 +16,14 @@ namespace SkeletonCQRS.Infrastructure.Events
         private readonly IRepository<EventEntity, Guid> _repository;
         private readonly IEventSerializer _serializer;
         private readonly IEventTypeFactory _typeFactory;
+        private readonly IEventPublisher _eventPublisher;
 
-        public EventStore(IRepository<EventEntity, Guid> repository, IEventSerializer serializer, IEventTypeFactory typeFactory)
+        public EventStore(IRepository<EventEntity, Guid> repository, IEventSerializer serializer, IEventTypeFactory typeFactory, IEventPublisher eventPublisher)
         {
             _repository = repository;
             _serializer = serializer;
             _typeFactory = typeFactory;
+            _eventPublisher = eventPublisher;
         }
 
         public IEnumerable<IDomainEvent> GetEventsFor(Guid aggregateId)
@@ -39,8 +40,12 @@ namespace SkeletonCQRS.Infrastructure.Events
 
         public void SaveEvents(IEnumerable<IDomainEvent> events)
         {
-            var entityEvents = events.Select(ToEventEntity).ToList();
-            _repository.AddRange(entityEvents);
+            foreach (var domainEvent in events)
+            {
+                var eventEntity = ToEventEntity(domainEvent);
+                _repository.Add(eventEntity);
+                _eventPublisher.Publish(domainEvent);
+            }
         }
 
         private EventEntity ToEventEntity(IDomainEvent e)

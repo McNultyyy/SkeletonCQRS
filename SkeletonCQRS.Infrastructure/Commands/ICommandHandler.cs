@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace SkeletonCQRS.Infrastructure.Commands.Handlers
+namespace SkeletonCQRS.Infrastructure.Commands
 {
     public interface ICommandHandler<in TCommand>
         where TCommand : ICommand

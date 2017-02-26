@@ -1,7 +1,4 @@
-﻿using Microsoft.Practices.Unity;
-using SkeletonCQRS.Infrastructure.Commands.Handlers;
-
-namespace SkeletonCQRS.Infrastructure.Commands
+﻿namespace SkeletonCQRS.Infrastructure.Commands
 {
     public interface ICommandHandlerFactory
     {

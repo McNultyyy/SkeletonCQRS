@@ -1,6 +1,5 @@
 ﻿using Microsoft.Practices.Unity;
 using SkeletonCQRS.Infrastructure.Commands;
-using SkeletonCQRS.Infrastructure.Commands.Handlers;
 
 namespace SkeletonCQRS.Web.Infrastructure
 {

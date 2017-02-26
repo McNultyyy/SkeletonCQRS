@@ -1,6 +1,6 @@
 ﻿using SkeletonCQRS.Domain.Aggregates;
 using SkeletonCQRS.Infrastructure.Aggregates;
-using SkeletonCQRS.Infrastructure.Commands.Handlers;
+using SkeletonCQRS.Infrastructure.Commands;
 
 namespace SkeletonCQRS.Domain.Commands.Handlers
 {

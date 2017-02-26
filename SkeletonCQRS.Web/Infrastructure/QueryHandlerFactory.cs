@@ -1,6 +1,5 @@
 ﻿using Microsoft.Practices.Unity;
 using SkeletonCQRS.Infrastructure.Queries;
-using SkeletonCQRS.Infrastructure.Queries.Handlers;
 
 namespace SkeletonCQRS.Web.Infrastructure
 {

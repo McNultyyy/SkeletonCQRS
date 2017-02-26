@@ -21,5 +21,5 @@ A standard web project.
 
 #### QuickStart
 ```
-Update-Database -ProjectName DAL
+Update-Database -ProjectName SkeletonCQRS.Data
 ```
